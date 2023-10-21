@@ -6,10 +6,9 @@ public class Email {
     private String lastName;
     private String firstName;
     private String accountPurpose;
+    private String email;
     private String password;
     private int defaultPasswordLength = 15;
-    private String  otherEmail;
-    private int mailboxCapacity;
 
     public Email (String lastName, String firstName) {
         this.lastName = lastName;
@@ -21,19 +20,22 @@ public class Email {
 
         this.password = randomPassword(defaultPasswordLength);
         System.out.println("Your password is: " + this.password);
+
+        email = lastName + "." + firstName + "@" + accountPurpose + ".com";
+        System.out.println("Your email address is: " + email);
     }
 
     private String setAccountPurpose() {
-        System.out.print("Enter the purpose of this email account:\n1 for Business,\n2 for Personal,\n3 for Education");
+        System.out.print("Enter the purpose of this email account:\n1 for business,\n2 for personal,\n3 for education");
         Scanner in = new Scanner(System.in);
 
         int accountPurposeChoice = in.nextInt();
         if (accountPurposeChoice == 1) {
-            return "Business";
+            return "business";
         } else if (accountPurposeChoice == 2) {
-            return "Personal";
+            return "personal";
         } else {
-            return "Education";
+            return "education";
         }
     }
 
